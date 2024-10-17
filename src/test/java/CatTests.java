@@ -1,5 +1,4 @@
 import com.example.Feline;
-import com.example.Lion;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -8,18 +7,12 @@ import org.mockito.junit.MockitoJUnitRunner;
 import com.example.*;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
-
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
 
 
 @RunWith(MockitoJUnitRunner.class)
-public class CatSoundTest {
+public class CatTests {
     Cat cat;
 
     @Mock

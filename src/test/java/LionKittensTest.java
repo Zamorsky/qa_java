@@ -1,5 +1,3 @@
-package LionTests;
-
 import com.example.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,14 +6,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static org.junit.Assert.assertEquals;
-
-//getKittens() - используем параметризацию
-
 //не имеет смысла делать параметризованную проверку так как lion.getKittens() не может принимать параметры
 //и возвращает только значение по умолчанию 1
 //логически это можно считать багом так как у льва может быть больше 1 котенка
-
 
 
 @RunWith(MockitoJUnitRunner.class)
