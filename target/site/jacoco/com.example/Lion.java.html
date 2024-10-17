@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Lion.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">qa_java</a> &gt; <a href="index.source.html" class="el_package">com.example</a> &gt; <span class="el_source">Lion.java</span></div><h1>Lion.java</h1><pre class="source lang-java linenums">package com.example;
+
+import java.util.List;
+
+public class Lion {
+
+    // Поле для хранения информации о наличии гривы у льва
+    boolean hasMane;
+
+    // Поле класс Lion для зависимости от класса Feline
+    private final Feline feline;
+
+    // Конструктор класса, который принимает параметр sex и feline (пол животного) и проверяет его
+<span class="fc" id="L14">    public Lion(String sex, Feline feline) throws Exception {</span>
+        // Устанавливаем зависимость через конструктор, теперь вместо создания Feline в классе Lion мы будем получать Feline извне в конструктор Lion, как параметр
+<span class="fc" id="L16">        this.feline = feline;</span>
+
+        // Если пол &quot;Самец&quot;, то устанавливаем hasMane как true (самцы имеют гриву)
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        if (&quot;Самец&quot;.equals(sex)) {</span>
+<span class="fc" id="L20">            hasMane = true;</span>
+        }
+        // Если пол &quot;Самка&quot;, то устанавливаем hasMane как false (самки не имеют гривы)
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        else if (&quot;Самка&quot;.equals(sex)) {</span>
+<span class="fc" id="L24">            hasMane = false;</span>
+        }
+        // Если пол не &quot;Самец&quot; и не &quot;Самка&quot;, выбрасывается исключение
+        else {
+<span class="fc" id="L28">            throw new Exception(&quot;Используйте допустимые значения пола животного - самец или самка&quot;);</span>
+        }
+<span class="fc" id="L30">    }</span>
+
+    // Создаем объект класса Feline (Предполагается, что этот класс содержит общую логику для кошачьих)
+    //Feline feline = new Feline(); после инъекции создавать Feline в классе Lion стало не нужно
+
+    // Метод возвращает количество детёнышей (котят), вызывая метод из класса Feline
+    public int getKittens() {
+<span class="fc" id="L37">        return feline.getKittens(); // Здесь предполагается, что Feline имеет метод getKittens(), который возвращает количество котят</span>
+    }
+
+    // Метод возвращает true или false в зависимости от того, есть ли у льва грива
+    public boolean doesHaveMane() {
+<span class="fc" id="L42">        return hasMane; // Если hasMane == true, то у льва есть грива</span>
+    }
+
+    // Метод возвращает список пищи льва (для хищника), вызывая метод из класса Feline
+    public List&lt;String&gt; getFood() throws Exception {
+<span class="fc" id="L47">        return feline.getFood(&quot;Хищник&quot;); // Вызываем метод getFood() из Feline, передавая в него тип &quot;Хищник&quot;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
